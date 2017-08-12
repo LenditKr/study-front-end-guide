@@ -351,17 +351,17 @@ We have found the [webpack walkthrough](https://survivejs.com/webpack/foreword/)
 
 <img alt="Yarn Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/yarn-logo.png" width="256px" />
 
-If you take a peek into your `node_modules` directory, you will be appalled by the number of directories that are contained in it. Each babel plugin, lodash function, is a package on its own. When you have multiple projects, these packages are duplicated across each project and they are largely similar. Each time you run `npm install` in a new project, these packages are downloaded over and over again even though they already exist in some other project in your computer.
+`node_modules` 디렉토리 안을 살펴보면 그 안에 포함된 수많은 디렉토리에 기겁할 겁니다. 각각의 babel 플러그인과 lodash 함수는 그 자체가 패키지입니다. 여러 개의 프로젝트가 있는 경우 이 패키지들은 각 프로젝트에 거의 유사하게 중복 저장됩니다. 새로운 프로젝트에서 `npm install` 실행을 할 때마다, 이 패키지가 다른 프로젝트에 존재하더라도 또 다시 다운로드하게 됩니다.
 
-There was also the problem of non-determinism in the installed packages via `npm install`. Some of our CI builds fail because at the point of time when the CI server installs the dependencies, it pulled in minor updates to some packages that contained breaking changes. This would not have happened if library authors respected [semver](http://semver.org/) and engineers did not assume that API contracts would be respected all the time.
+또 `npm install`를 통해 패키지를 설치했을 때 '비결정성' 문제가 있었습니다. 우리 CI 빌드 중 일부가 실패했었는데, 빌드하는 시점에 의존성들을 설치하는 과정에서 일부 'breaking changes'를 포함한 마이너 업데이트 패키지를 받아왔기 때문이었습니다. 라이브러리 저자들이 [semver](http://semver.org/)를 따르고, 엔지니어들이 API 규약을 항상 존중한다는 가정을 하지 않았다면 이런 일이 발생하지 않았을 겁니다.
 
-[Yarn](https://yarnpkg.com/) solves these problems. The issue of non-determinism of installed packages is handled via a `yarn.lock` file, which ensures that every install results in the exact same file structure in `node_modules` across all machines. Yarn utilizes a global cache directory within your machine, and packages that have been downloaded before do not have to be downloaded again. This also enables offline installation of dependencies!
+[Yarn](https://yarnpkg.com/)는 이러한 문제들을 해결했습니다. '비결정적' 문제는 `yarn.lock` 파일을 통해 처리되며, 어떤 시스템에 설치해도 `node_modules` 내부의 파일 구조가 동일함을 보장합니다. Yarn은 전역 캐시 디렉토리를 활용해서 이미 다운로드한 적이 있는 패키지를 다시 다운받지 않아도 되게 합니다. 또한 오프라인으로 의존성을 설치할 수 있습니다!
 
-The most common Yarn commands can be found [here](https://yarnpkg.com/en/docs/usage). Most other yarn commands are similar to the `npm` equivalents and it is fine to use the `npm` versions instead. One of our favorite commands is `yarn upgrade-interactive` which makes updating dependencies a breeze especially when the modern JavaScript project requires so many dependencies these days. Do check it out!
+가장 일반적인 Yarn 명령어는 [여기에서](https://yarnpkg.com/en/docs/usage) 찾을 수 있습니다. 다른 대부분의 명령어들은 `npm` 과 유사하므로 `npm` 버전을 대신 사용해도 됩니다. 우리가 좋아하는 명령어 중 하나는 `yarn upgrade-interactive`인데, 요즘처럼 자바스크립트 프로젝트가 의존성을 많이 가지고 있는 상황에서 의존성 업그레이드를 매우 수월하게 만들어 줍니다. 확인해 보세요!
 
-npm@5.0.0 was [released in May 2017](https://github.com/npm/npm/releases/tag/v5.0.0) and it seems to address many of the issues that Yarn aims to solve. Do keep an eye on it!
+npm@5.0.0이 [2017년 5월에 출시](https://github.com/npm/npm/releases/tag/v5.0.0)되었는데, Yarn이 해결하고자 한 많은 이슈들을 해결한 것으로 보입니다. 계속 주시하세요!
 
-**Estimated Duration: 2 hours.**
+**예상소요시간: 2시간**
 
 #### Study Links
 
