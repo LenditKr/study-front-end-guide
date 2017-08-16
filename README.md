@@ -80,15 +80,15 @@ JavaScript frameworks have been created to provide higher-level abstractions ove
 
 ## New-age JavaScript
 
-Before you dive into the various aspects of building a JavaScript web app, it is important to get familiar with the language of the web - JavaScript, or ECMAScript. JavaScript is an incredibly versatile language which you can also use to build [web servers](https://nodejs.org/en/), [native mobile apps](https://facebook.github.io/react-native/) and [desktop apps](https://electron.atom.io/).
+자바스크립트 웹 앱 작성의 세계에 뛰어들기 전에, 웹의 언어인 자바스크립트(또는 ECMAScript)에 익숙해지는 것이 중요합니다. 자바스크립트는 [웹 서버](https://nodejs.org/en/)나 [네이티브 모바일 앱](https://facebook.github.io/react-native/), [데스크탑 앱](https://electron.atom.io/)까지도 만들 수 있는 끝내주게 다재다능한 언어입니다.
 
-Prior to 2015, the last major update was ECMAScript 5.1, in 2011. However, in the recent years, JavaScript has suddenly seen a huge burst of improvements within a short span of time. In 2015, ECMAScript 2015 (previously called ECMAScript 6) was released and a ton of syntactic constructs were introduced to make writing code less unwieldy. If you are curious about it, Auth0 has written a nice article on the [history of JavaScript](https://auth0.com/blog/a-brief-history-of-javascript/). Till this day, not all browsers have fully implemented the ES2015 specification. Tools such as [Babel](https://babeljs.io/) enable developers to write ES2015 in their apps and Babel transpiles them down to ES5 to be compatible for browsers.
+2015년 전까지는 ECMAScript 5.1이 가장 최신 버전이었습니다. 그러나 최근에 자바스크립트는 짧은 시간동안 갑자기 엄청난 발전을 이뤘습니다. 2015년에 (이전에 ECMAScript 6로 불리던)ECMAScript 2015가 나왔고, 코드를 깔끔하게 작성하게 해주는 여러가지 문법적인 구조가 소개되었습니다. 이에 대해 관심이 있으면 Auth0가 쓴 글 [history of JavaScript](https://auth0.com/blog/a-brief-history-of-javascript/)를 읽어보세요. 아직까지 모든 브라우저에서 ES2015 명세가 다 구현되지는 않았지만, [Babel](https://babeljs.io/)과 같은 도구들의 도움을 받으면 개발자가 ES2015로 코드를 작성해도 이를 ES5로 트랜스파일해서 브라우저에서 돌아가도록 할 수 있습니다.
 
-Being familiar with both ES5 and ES2015 is crucial. ES2015 is still relatively new and a lot of open source code and Node.js apps are still written in ES5. If you are doing debugging in your browser console, you might not be able to use ES2015 syntax. On the other hand, documentation and example code for many modern libraries that we will introduce later below are still written in ES2015. At Grab, we use [babel-preset-env](https://github.com/babel/babel-preset-env) to enjoy the productivity boost from the syntactic improvements the future of JavaScript provides and we have been loving it so far. `babel-preset-env` intelligently determines which Babel plugins are necessary (which new language features are not supported and have to be transpiled) as browsers increase native support for more ES language features. If you prefer using language features that are already stable, you may find that [babel-preset-stage-3](https://babeljs.io/docs/plugins/preset-stage-3/), which is a complete specification that will most likely be implemented in browsers, will be more suitable.
+사실 ES5와 ES2015에 둘 다 익숙해질 필요가 있습니다. ES2015가 아직 나온지 그리 오래 않았기 때문에 많은 오픈 소스 및 Node.js 앱들은 아직 ES5로 작성되고 있습니다. 아마 브라우저 콘솔에서 디버깅을 할 때도 ES2015 문법을 온전히 사용하지 못할 겁니다. 반면에 아래에서 소개할 모던 라이브러리들의 문서나 예제 코드들은 ES2015로 작성되었습니다. Grab에서는 [babel-preset-env](https://github.com/babel/babel-preset-env)를 사용하고 있는데, 이 사랑스러운 녀석은 우리가 최신 자바스크립트의 문법적 향상에 따른 생산성 증대를 누리도록 해 줍니다. 브라우저가 최신 ES표준 지원율을 나날이 높혀 나가는 가운데, `babel-preset-env`는 브라우저에서 지원하지 않는 기능들을 지능적으로 판단하여 이에 필요한 플러그인들을 알아서 골라 트랜스파일합니다. 혹시 표준 제안 중 stable 상태라 곧 브라우저에서 구현될 예정인 명세를 사용하는 것을 선호한다면 [babel-preset-stage-3](https://babeljs.io/docs/plugins/preset-stage-3/)가 더 적합할 수 있습니다.
 
-Spend a day or two revising ES5 and exploring ES2015. The more heavily used features in ES2015 include "Arrows and Lexical This", "Classes", "Template Strings", "Destructuring", "Default/Rest/Spread operators", and "Importing and Exporting modules".
+하루 이틀 정도 시간을 내어 ES5를 복습하고 ES2015를 탐험해 보세요. ES2015에서 주로 많이 사용되는 기능은 "Arrows and Lexical This", "Classes", "Template Strings", "Destructuring", "Default/Rest/Spread operators", and "Importing and Exporting modules" 정도가 있습니다.
 
-**Estimated Duration: 3-4 days.** You can learn/lookup the syntax as you learn the other libraries and try building your own app.
+**예상소요시간: 3-4일** 다른 라이브러리들을 배우거나 앱을 직접 만들면서도 문법을 배우거나 살펴볼 수 있습니다.
 
 #### Study Links
 
@@ -351,17 +351,17 @@ We have found the [webpack walkthrough](https://survivejs.com/webpack/foreword/)
 
 <img alt="Yarn Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/yarn-logo.png" width="256px" />
 
-If you take a peek into your `node_modules` directory, you will be appalled by the number of directories that are contained in it. Each babel plugin, lodash function, is a package on its own. When you have multiple projects, these packages are duplicated across each project and they are largely similar. Each time you run `npm install` in a new project, these packages are downloaded over and over again even though they already exist in some other project in your computer.
+`node_modules` 디렉토리 안을 살펴보면 그 안에 포함된 수많은 디렉토리에 기겁할 겁니다. 각각의 babel 플러그인과 lodash 함수는 그 자체가 패키지입니다. 여러 개의 프로젝트가 있는 경우 이 패키지들은 각 프로젝트에 거의 유사하게 중복 저장됩니다. 새로운 프로젝트에서 `npm install` 실행을 할 때마다, 이 패키지가 다른 프로젝트에 존재하더라도 또 다시 다운로드하게 됩니다.
 
-There was also the problem of non-determinism in the installed packages via `npm install`. Some of our CI builds fail because at the point of time when the CI server installs the dependencies, it pulled in minor updates to some packages that contained breaking changes. This would not have happened if library authors respected [semver](http://semver.org/) and engineers did not assume that API contracts would be respected all the time.
+또 `npm install`를 통해 패키지를 설치했을 때 '비결정성' 문제가 있었습니다. 우리 CI 빌드 중 일부가 실패했었는데, 빌드하는 시점에 의존성들을 설치하는 과정에서 일부 'breaking changes'를 포함한 마이너 업데이트 패키지를 받아왔기 때문이었습니다. 라이브러리 저자들이 [semver](http://semver.org/)를 따르고, 엔지니어들이 API 규약을 항상 존중한다는 가정을 하지 않았다면 이런 일이 발생하지 않았을 겁니다.
 
-[Yarn](https://yarnpkg.com/) solves these problems. The issue of non-determinism of installed packages is handled via a `yarn.lock` file, which ensures that every install results in the exact same file structure in `node_modules` across all machines. Yarn utilizes a global cache directory within your machine, and packages that have been downloaded before do not have to be downloaded again. This also enables offline installation of dependencies!
+[Yarn](https://yarnpkg.com/)는 이러한 문제들을 해결했습니다. '비결정성' 문제는 `yarn.lock` 파일을 통해 처리되며, 어떤 시스템에 설치해도 `node_modules` 내부의 파일 구조가 동일함을 보장합니다. Yarn은 전역 캐시 디렉토리를 활용해서 이미 다운로드한 적이 있는 패키지를 다시 다운받지 않아도 되게 합니다. 또한 오프라인으로 의존성을 설치할 수 있습니다!
 
-The most common Yarn commands can be found [here](https://yarnpkg.com/en/docs/usage). Most other yarn commands are similar to the `npm` equivalents and it is fine to use the `npm` versions instead. One of our favorite commands is `yarn upgrade-interactive` which makes updating dependencies a breeze especially when the modern JavaScript project requires so many dependencies these days. Do check it out!
+가장 일반적인 Yarn 명령어는 [여기에서](https://yarnpkg.com/en/docs/usage) 찾을 수 있습니다. 다른 대부분의 명령어들은 `npm` 과 유사하므로 `npm` 버전을 대신 사용해도 됩니다. 우리가 좋아하는 명령어 중 하나는 `yarn upgrade-interactive`인데, 요즘처럼 자바스크립트 프로젝트가 의존성을 많이 가지고 있는 상황에서 의존성 업그레이드를 매우 수월하게 만들어 줍니다. 확인해 보세요!
 
-npm@5.0.0 was [released in May 2017](https://github.com/npm/npm/releases/tag/v5.0.0) and it seems to address many of the issues that Yarn aims to solve. Do keep an eye on it!
+npm@5.0.0이 [2017년 5월에 출시](https://github.com/npm/npm/releases/tag/v5.0.0)되었는데, Yarn이 해결하고자 한 많은 이슈들을 해결한 것으로 보입니다. 계속 주시하세요!
 
-**Estimated Duration: 2 hours.**
+**예상소요시간: 2시간**
 
 #### Study Links
 
