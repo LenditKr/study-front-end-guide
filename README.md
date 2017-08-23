@@ -50,27 +50,27 @@ Certain topics can be skipped if you have prior experience in them.
 
 ## Single-page Apps (SPAs)
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response for their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML for the new page. This is called server-side rendering.
+최근 웹 개발자들은 그들이 만드는 제품을 웹 사이트보다는 웹 앱이라는 이름으로 부르고 있습니다. 두 용어 간에 명확한 구분이 있는 것은 아니지만, 사용자들이 어떤 동작을 하고 그에 대한 응답을 받을 수 있게 하는 좀 더 동적이고 상호작용이 많은 것을 웹 앱이라고 부르는 경향이 있습니다. 전통적으로, 브라우저는 서버에서 HTML을 받아 화면에 그립니다. 사용자가 다른 URL로 이동하면, 전체 페이지의 새로고침이 필요하며 서버는 새로운 페이지를 위해 새로운 HTML을 전송합니다. 이것을 서버 사이드 렌더링이라고 부릅니다.
 
-However in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+그러나 모던 SPA에서는 대신 클라이언트 사이드 렌더링을 사용합니다. 브라우저는 서버에서 전체 앱을 구성하는 데 필요한 스크립트(프레임워크, 라이브러리, 앱 코드)와 스타일시트를 포함한 초기 페이지를 로드합니다. 사용자가 다른 페이지로 이동할 때, 페이지는 새로고침되지 않습니다. 페이지의 URL은 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) 을 통해 업데이트됩니다. 새로운 페이지를 위해 필요한 (보통 JSON 포맷으로 이루어진) 새로운 데이터는 브라우저가 서버에 보내는 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 요청을 통해 수신됩니다. 그 후 SPA는 수신된 데이터를 가지고, 초기 페이지를 로딩할 때 다운로드 받아 두었던 자바스크립트를 이용해 동적으로 페이지를 업데이트합니다. 이 모델은 네이티브 모바일 앱들이 동작하는 방식과 비슷합니다.
 
-The benefits:
+장점:
 
-- The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
-- Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
-- Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+- 앱의 반응속도가 빠르고 사용자가 페이지 이동 중에 전체 페이지 새로고침으로 인한 번쩍임을 경험하지 않습니다.
+- 페이지를 로드할 때마다 같은 asset이 매번 다운로드될 필요가 없기 때문에 서버에 더 적은 HTTP request를 하게 됩니다.
+- 서버와 클라이언트의 관심사가 명확하게 분리됩니다; 서버 코드 수정 없이 다양한 플랫폼(모바일, 챗봇, 스마트워치 등)들을 위한 클라이언트를 쉽게 만들 수 있습니다. 또한 클라이언트와 서버의 기술 스택을 독립적으로 변경할 수 있습니다(API 규약만 잘 지켜진다면).
 
-The downsides:
+단점:
 
-- Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.<sup><a href="#fn1" id="ref1">1</a></sup>
-- There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
-- SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. <sup><a href="#fn2" id="ref2">2</a></sup>. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+- 프레임워크, 앱 코드, 여러 페이지에서 필요한 asset 등으로 인해 초기 페이지 로딩이 무거워집니다.<sup><a href="#fn1" id="ref1">1</a></sup>
+- 서버에서 모든 요청을 하나의 진입 포인트로 라우팅하고 이후 클라이언트에서 라우팅 역할을 가져갈 수 있도록 하는 추가 작업이 필요합니다.
+- SPA는 자바스크립트를 통해 콘텐츠를 렌더링하지만, 모든 검색엔진이 크롤링 도중 자바스크립트를 실행하는 것은 아니기 때문에 일부 검색엔진에서는 빈 페이지를 보게 됩니다. 이는 의도치 않게 검색엔진 최적화 (SEO)에 악영향을 주게 됩니다. <sup><a href="#fn2" id="ref2">2</a></sup>. 그러나 대부분의 경우 앱을 만들 때 모든 콘텐츠가 검색엔진에 색인될 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이 문제를 극복하기 위해서는 서버 사이드 렌더링을 하거나, 브라우저에서 자바스크립트를 렌더링해서 정적 HTML을 저장한 후 크롤러에게 제공하는 [Prerender](https://prerender.io/) 같은 서비스를 사용할 수도 있습니다.
 
-While traditional server-side rendered apps are still a viable option, a clear client-server separation scales better for larger engineering teams, as the client and server code can be developed and released independently. This is especially so at Grab when we have multiple client apps hitting the same API server.
+전통적인 서버 사이드 렌더링 앱은 여전히 유효한 옵션이지만, 대규모 엔지니어링 팀에게는 클라이언트-서버의 명확한 분리가 더 좋습니다. 왜냐하면 클라이언트와 서버 코드가 독립적으로 개발/배포될 수 있기 때문입니다. 같은 API 서버를 사용하는 여러 클라이언트가 있을 경우 특히 유용합니다.
 
-As web developers are now building apps rather than pages, organization of client-side JavaScript has become increasingly important. In server-side rendered pages, it is common to use snippets of jQuery to add user interactivity to each page. However, when building large apps, just jQuery is insufficient. After all, jQuery is primarily a library for DOM manipulation and it's not a framework; it does not define a clear structure and organization for your app.
+웹 개발자들이 이제 페이지보다는 앱을 만들고 있기 때문에, 클라이언트 측 자바스크립트의 구성이 점차 중요해지고 있습니다. 서버 사이드 렌더링된 페이지에서는, 각 페이지에 jQuery 스니펫을 넣어서 유저 상호작용을 추가하는 것이 일반적이었습니다. 그러나 대규모의 앱을 만들 때는 jQuery만으로는 충분하지 않습니다. 무엇보다도 jQuery는 DOM 조작을 위한 라이브러리이지 프레임워크는 아니므로, 앱을 위한 명확한 구조와 구성을 정의하지는 않습니다.
 
-JavaScript frameworks have been created to provide higher-level abstractions over the DOM, allowing you to keep state in memory, out of the DOM. Using frameworks also brings the benefits of reusing recommended concepts and best practices for building apps. A new engineer on the team who is unfamiliar with the code base, but has experience with a framework, will find it easier to understand the code because it is organized in a structure that they are familiar with. Popular frameworks have a lot of tutorials and guides, and tapping on the knowledge and experience from colleagues and the community will help new engineers get up to speed.
+자바스크립트 프레임워크들은 DOM 위에 더 높은 수준의 추상화를 제공하기 위해 만들어졌으며, DOM 외부의 메모리에 상태를 유지할 수 있도록 해줍니다. 또한 프레임워크를 사용하면 앱을 만들기 위해 권장되는 개념과 모범 사례를 재사용할 수 있는 이점도 누릴 수 있습니다. 코드 기반에 익숙하지 않지만 프레임워크에 대한 경험이 있는 팀의 새로운 엔지니어는 코드가 익숙한 구조로 구성되어 있기 때문에 코드를 더 쉽게 이해할 수 있습니다. 인기 있는 프레임워크들은 많은 튜토리얼과 가이드가 있으며, 동료들과 커뮤니티의 지식과 경험을 활용하면 새로운 엔지니어들이 빠르게 작업할 수 있습니다.
 
 #### Study Links
 
