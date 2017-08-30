@@ -1,4 +1,4 @@
-Grab Front End Guide
+Grab 프론트엔드 가이드
 ==
 
 [![Front End Developer Desk](images/desk.png)](https://dribbble.com/shots/3577639-Isometric-Developer-Desk)
@@ -192,40 +192,40 @@ Your app will likely have to deal with async calls like making remote API reques
 
 - [MobX](https://github.com/mobxjs/mobx)
 
-## Coding with Style - CSS Modules
+## 스타일이 살아있게 코딩하기 - CSS Modules
 
-<img alt="CSS Modules Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/css-modules-logo.svg" width="256px" />
+<img alt="CSS Modules 로고" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/css-modules-logo.svg" width="256px" />
 
-CSS (Cascading Style Sheets) are rules to describe how your HTML elements look. Writing good CSS is hard. It usually takes many years of experience and frustration of shooting yourself in the foot before one is able to write maintainable and scalable CSS. CSS, having a global namespace, is fundamentally designed for web documents, and not really for web apps that favor a components architecture. Hence, experienced front end developers have designed methodologies to guide people on how to write organized CSS for complex projects, such as using [SMACSS](https://smacss.com/), [BEM](http://getbem.com/), [SUIT CSS](http://suitcss.github.io/), etc.
+CSS(Cascading Style Sheets)는 작성한 HTML 요소들을 어떻게 표시할지 서술하는 규칙입니다. CSS 잘 쓰기는 어렵습니다. 유지보수와 확장이 쉬운 CSS를 작성할 수 있게 되기 까지는 다년간의 경험과 내 발등을 찍는 좌절을 겪기 마련입니다. CSS는 웹문서용으로 설계되는 바람에 전역 네임스페이스를 갖습니다. 컴포넌트 구조의 웹앱과는 잘 맞지 않지요. 그래서 경험 많은 프론트엔드 개발자들은 복잡한 프로젝트에서 CSS를 정리하는 방법론들을 만들었습니다. 예를 들어 [SMACSS](https://smacss.com/), [BEM](http://getbem.com/), [SUIT CSS](http://suitcss.github.io/) 같은 것들이 있습니다.
 
-However, the encapsulation of styles that these methodologies bring about are artificially enforced by conventions and guidelines. They break the moment developers do not follow them.
+하지만 이러한 방법론들이 제안하는 스타일 체계는 관습과 가이드라인에 의하여 인공적으로 주어진 것입니다. 개발자들이 관습을 어기는 순간 체계는 무너지고 맙니다.
 
-As you might have realized by now, the front end ecosystem is saturated with tools, and unsurprisingly, tools have been invented to [partially solve some of the problems](https://speakerdeck.com/vjeux/react-css-in-js) with writing CSS at scale. "At scale" means that many developers are working on the same large project and touching the same stylesheets. There is no community-agreed approach on writing [CSS in JS](https://github.com/MicheleBertoli/css-in-js) at the moment, and we are hoping that one day a winner would emerge, just like Redux did, among all the Flux implementations. For now, we are banking on [CSS Modules](https://github.com/css-modules/css-modules). CSS modules is an improvement over existing CSS that aims to fix the problem of global namespace in CSS; it enables you to write styles that are local by default and encapsulated to your component. This feature is achieved via tooling. With CSS modules, large teams can write modular and reusable CSS without fear of conflict or overriding other parts of the app. However, at the end of the day, CSS modules are still being compiled into normal globally-namespaced CSS that browsers recognize, and it is still important to learn and understand how raw CSS works.
+지금쯤이면 눈치채셨겠지만, 프론트엔드 생태계는 넘쳐나는 도구들로 포화상태입니다. 당연히 대규모로 CSS 작업을 하면서 생기는 문제들을 [부분적으로나마 풀기위한 것들](https://speakerdeck.com/vjeux/react-css-in-js)도 많이 발명되었습니다. "대규모"라는 건 많은 개발자가 하나의 커다란 프로젝트에 참여하고, 같은 스타일시트를 고친다는 의미입니다. 지금은 [JS내에 CSS를 넣는 방법](https://github.com/MicheleBertoli/css-in-js)에 대하여 확립된 관습은 없습니다. 언젠가는 승자가 나오기를 기대해봅니다. Redux가 다른 Flux 구현체들을 물리친 것처럼요. 그랩은 현재로서는 [CSS Modules](https://github.com/css-modules/css-modules)를 선택했습니다. CSS Modules는 전역 네임스페이스 문제를 해결하기 위하여 기존의 CSS를 개선한 것입니다. 컴포넌트로 감싸서 내부에서만 유효한 스타일을 작성할 수 있습니다. 이런 기능은 도구체계를 이용하여 구현되었습니다. CSS Modules를 사용하면, 대규모 팀이 모듈화 되고 재사용하기 쉬운 CSS를 작성할 수 있습니다. 충돌과 부작용의 공포 없이 말이지요. 하지만 결국에는 CSS Modules도 브라우저가 인식할 수 있는 일반적인 전역 네임스페이스 CSS로 컴파일하게 됩니다. 기본 CSS가 어떻게 동작하는지 이해하는 것은 여전히 중요하겠지요.
 
-If you are a total beginner to CSS, Codecademy's [HTML & CSS course](https://www.codecademy.com/learn/learn-html-css) will be a good introduction to you. Next, read up on the [Sass preprocessor](http://sass-lang.com/), an extension of the CSS language which adds syntactic improvements and encourages style reusability. Study the CSS methodologies mentioned above, and lastly, CSS modules.
+만약 CSS가 처음이라면, Codecademy의 [HTML과 CSS 수업](https://www.codecademy.com/learn/learn-html-css)으로 시작하면 좋습니다. 그리고, [Sass전처리기](http://sass-lang.com/)를 공부하세요. 더 나은 문법을 제공하고 재사용을 쉽게 만들어주는 CSS언어의 확장인 언어입니다. 이런 CSS의 방법론을 먼저 공부한 후, 마지막으로 CSS Modules를 살펴보세요.
 
-**Estimated Duration: 3-4 days.** Try styling up your app using the SMACSS/BEM approach and/or CSS modules.
+**예상소요시간: 3-4일.** 당신의 앱에 SMACSS/BEM, 그리고 CSS Modules를 적용해보세요.
 
 #### Study Links
 
-- [Learn HTML & CSS course on Codecademy](https://www.codecademy.com/learn/learn-html-css)
-- [Intro to HTML/CSS on Khan Academy](https://www.khanacademy.org/computing/computer-programming/html-css)
+- [Codecademy의 HTML & CSS 코스](https://www.codecademy.com/learn/learn-html-css)
+- [Khan Academy의 HTML/CSS 개론](https://www.khanacademy.org/computing/computer-programming/html-css)
 - [SMACSS](https://smacss.com/)
 - [BEM](http://getbem.com/introduction/)
 - [SUIT CSS](http://suitcss.github.io/)
-- [CSS Modules Specification](https://github.com/css-modules/css-modules)
-- [Sass Homepage](http://sass-lang.com/)
-- [Answers to Front End Job Interview Questions — HTML](https://github.com/yangshun/tech-interview-handbook/blob/master/front-end/interview-questions.md#html-questions)
-- [Answers to Front End Job Interview Questions — CSS](https://github.com/yangshun/tech-interview-handbook/blob/master/front-end/interview-questions.md#css-questions)
+- [CSS Modules 문서](https://github.com/css-modules/css-modules)
+- [Sass 홈페이지](http://sass-lang.com/)
+- [프론트엔드 개발자 면접 질문들에 대한 답 — HTML](https://github.com/yangshun/tech-interview-handbook/blob/master/front-end/interview-questions.md#html-questions)
+- [프론트엔드 개발자 면접 질문들에 대한 답 — CSS](https://github.com/yangshun/tech-interview-handbook/blob/master/front-end/interview-questions.md#css-questions)
 
 #### Alternatives
 
 - [JSS](https://github.com/cssinjs/jss)
 - [Styled Components](https://github.com/styled-components/styled-components)
 
-## Maintainability
+## 유지보수하기
 
-Code is read more frequently than it is written. This is especially true at Grab, where the team size is large and we have multiple engineers working across multiple projects. We highly value readability, maintainability and stability of the code and there are a few ways to achieve that: "Extensive testing", "Consistent coding style" and "Typechecking". Also when you are in a team, sharing same practices becomes really important. Check out these [JavaScript Project Guidelines](https://github.com/wearehive/project-guidelines) for instance.
+코드는 한 번 작성하지만, 여러 번 읽게 됩니다. Grab에서는 특히 더 그렇습니다. 팀의 크기가 크고, 여러 엔지니어들이 다양한 프로젝트에 교차로 참여하니까요. 우리는 읽기 쉽고, 유지보수하기 쉬우며, 안정된 코드의 가치를 믿습니다. 이를 달성하기 위한 방법이 몇 가지 있지요. "아주 많은 테스트", "일관된 코드 형식", "타입 체크". 팀으로 일할 때는 동일한 관습을 공유하는 것이 매우 중요합니다. 예를 들어 [자바스크립트 프로젝트 가이드라인들](https://github.com/wearehive/project-guidelines)을 살펴보세요.
 
 ## Testing - Jest + Enzyme
 
@@ -276,24 +276,24 @@ For the most part, using ESLint is as simple as tweaking a configuration file in
 - [Standard](https://github.com/feross/standard)
 - [JSHint](http://jshint.com/)
 
-## Linting CSS - stylelint
+## CSS 검사 - stylelint
 
-<img alt="stylelint Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/stylelint-logo.svg" width="256px" />
+<img alt="stylelint 로고" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/stylelint-logo.svg" width="256px" />
 
-As mentioned earlier, good CSS is notoriously hard to write. Usage of static analysis tools on CSS can help to maintain our CSS code quality and coding style. For linting CSS, we use stylelint. Like ESLint, stylelint is designed in a very modular fashion, allowing developers to turn rules on/off and write custom plugins for it. Besides CSS, stylelint is able to parse SCSS and has experimental support for Less, which lowers the barrier for most existing code bases to adopt it.
+앞에서 말했듯이, CSS는 잘 쓰기 어렵기로 악명 높습니다. CSS에 정적분석도구를 사용하면, 코드 품질과 스타일 유지에 도움이 됩니다. CSS 검사를 위해 우리는 stylelint를 사용합니다. ESLint와 비슷하게, stylelint는 모듈화된 구성을 가지고 있습니다. 규칙을 끄거나 켤 수 있고, 플러그인을 만들 수도 있습니다. CSS 외에 SCSS도 지원하고, 실험적인 기능이지만 Less도 지원합니다. 기존에 존재하는 대부분의 코드에 적용하기 더 쉬울 겁니다.
 
-![stylelint Demo](images/stylelint-demo.png)
+![stylelint 데모](images/stylelint-demo.png)
 
-Once you have learnt ESLint, learning stylelint would be effortless considering their similarities. stylelint is currently being used by big companies like [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [Github](https://github.com/primer/stylelint-config-primer) and [Wordpress](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress).
+ESLint를 배웠다면, 비슷한 stylelint를 배우는 것도 쉽습니다. stylelint는 현재 [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [Github](https://github.com/primer/stylelint-config-primer), [Wordpress](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress) 같은 큰 회사들에서도 사용하고 있습니다.
 
-One downside of stylelint is that the autofix feature is not fully mature yet, and is only able to fix for a limited number of rules. However, this issue should improve with time.
+stylelint의 한 가지 단점은, 아직 자동교정 기능이 완전하지 않고, 몇 가지 제한된 숫자의 규칙에 따라서만 고칠 수 있다는 것입니다. 시간이 지나면 점차 해결될 문제입니다.
 
-**Estimated Duration: 1/2 day.** Nothing much to learn here. Add stylelint to your project and fix the linting errors!
+**예상소요시간: 1/2 일.**  별로 배울 것이 없습니다. 프로젝트에 stylelint를 적용하고, 오류를 수정하세요!
 
 #### Study Links
 
-- [stylelint Homepage](https://stylelint.io/)
-- [Lint your CSS with stylelint](https://css-tricks.com/stylelint/)
+- [stylelint 홈페이지](https://stylelint.io/)
+- [stylelint로 CSS 검사하기](https://css-tricks.com/stylelint/)
 
 #### Alternatives
 
