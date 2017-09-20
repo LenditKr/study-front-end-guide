@@ -140,44 +140,44 @@ React는 프레임워크가 아닌 라이브러리이며 view 아래 layer(앱 �
 - [Vue](https://vuejs.org/)
 - [Cycle](https://cycle.js.org/)
 
-## State Management - Flux/Redux
+## 상태 관리 - Flux/Redux
 
 <img alt="Redux Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/redux-logo.svg" width="256px" />
 
-As your app grows bigger, you may find that the app structure becomes a little messy. Components throughout the app may have to share and display common data but there is no elegant way to handle that in React. After all, React is just the view layer, it does not dictate how you structure the other layers of your app, such as the model and the controller, in traditional MVC paradigms. In an effort to solve this, Facebook invented Flux, an app architecture that complements React's composable view components by utilizing a unidirectional data flow. Read more about how Flux works [here](https://facebook.github.io/flux/docs/in-depth-overview.html). In summary, the Flux pattern has the following characteristics:
+앱이 커질수록, 앱구조가 조금 엉망이 될 수도 있습니다. 앱 전반의 컴포넌트는 공통 데이터를 공유하고 표시해야하지만 React에서 이를 처리 할 수 있는 우아한 방법이 없습니다. 결국 React는 뷰 레이어 일 뿐이며 모델 및 컨트롤러와 같이 기존 MVC 패러다임으로 앱의 다른 레이어를 구성하는 방법을 지정하지 않습니다. 이를 해결하기 위한 노력으로 페이스북은 단방향 데이터 흐름을 활용하여 React의 뷰 컴포넌트를 보완하는 앱 아키텍처인 Flux를 개발하였습니다. Flux가 어떻게 작동하는지 [이 링크](https://facebook.github.io/flux/docs/in-depth-overview.html)에서 더 자세히 일어보십시오. 요약하면, Flux 패턴은 다음과 같은 특성을 같습니다.
 
-- **Unidirectional data flow** - Makes the app more predictable as updates can be tracked easily.
-- **Separation of concerns** - Each part in the Flux architecture has clear responsibilities and are highly decoupled.
-- **Works well with declarative programming** - The store can send updates to the view without specifying how to transition views between states.
+- **단방향 테이터 흐름** - 업데이트를 쉽게 추적할 수 있으므로 앱을 더 예측 가능하게 만듭니다.
+- **관심사의 분리** - Flux 아키텍처의 각 부분은 명확한 책임을 가지고 있고 고도로 분리되어 있습니다.
+- **선언적 프로그래밍과 잘 동작합니다** - 저장소는 상태간에 뷰를 전환하지 않고 뷰에 업데이트를 보낼 수 있습니다.
 
-As Flux is not a framework per se, developers have tried to come up with many implementations of the Flux pattern. Eventually, a clear winner emerged, which was [Redux](http://redux.js.org/). Redux combines the ideas from Flux, [Command pattern](https://www.wikiwand.com/en/Command_pattern) and [Elm architecture](https://guide.elm-lang.org/architecture/) and is the de facto state management library developers use with React these days. Its core concepts are:
+Flux는 본질적으로 프레임워크가 아니기 때문에 개발자는 Flux 패턴의 구현을 많이 찾아 내려고 노력했습니다. 결국 [Redux](http://redux.js.org/)가 분명한 승자가 되었습니다. Redux는 Flux, [Command 패턴](https://www.wikiwand.com/en/Command_pattern) 및 [Elm 아키텍처](https://guide.elm-lang.org/architecture/)의 아이디어를 결합하였고 요즘 React에서 개발자가 사용하는 사실상의 상태 관리 라이브러리 입니다. 핵심 개념은 다음과 같습니다.
 
-- App **state** is described by a single plain old JavaScript object (POJO).
-- Dispatch an **action** (also a POJO) to modify the state.
-- **Reducer** is a pure function that takes in current state and action to produce a new state.
+- 앱 **상태**는 단일의 간단한 오래된 자바스크립트 객체(POJO)에 의해 설명됩니다.
+- 상태 수정을 위한 액션(또한 POJO)를 전달합니다.
+- **Reducer**는 현재 상태와 동작을 가져와서 새로운 상태를 생성하는 순수한 함수입니다.
 
-The concepts sound simple, but they are really powerful as they enable apps to:
+개념은 간단하게 들리지만, 앱이 다음을 수행할 수 있게 해주므로 정말 강력합니다.
 
-- Have their state rendered on the server, booted up on the client.
-- Trace, log and backtrack changes in the whole app.
-- Implement undo/redo functionality easily.
+- 서버에서 렌더링 된 상태를 가지고 클라이언트에서 시작할 수 있습니다.
+- 전체 앱에서 로그와 backtrack의 변경을 추적할 수 있습니다.
+- '실행 취소'/'다시 실행' 기능을 쉽게 구현할 수 있습니다.
 
-The creator of Redux, [Dan Abramov](https://github.com/gaearon), has taken great care in writing up detailed documentation for Redux, along with creating comprehensive video tutorials for learning [basic](https://egghead.io/courses/getting-started-with-redux) and [advanced](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) Redux. They are extremely helpful resources for learning Redux.
+Redux의 창시자인 [Dan Abramov](https://github.com/gaearon)는 Redux에 대한 자세한 문서를 작성하였고, Redux를 배우기 위한 [기본](https://egghead.io/courses/getting-started-with-redux)과 [고급](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) 과정의 동영상 튜토리얼을 만드는데 큰 도움을 주었습니다. 그것들은 Redux 학습에 매우 유용한 자료입니다.
 
-**Combining View and State**
+**뷰와 상태 결합**
 
-While Redux does not necessarily have to be used with React, it is highly recommended as they play very well with each other. React and Redux have a lot of ideas and traits in common:
+Redux는 반드시 React와 함께 사용할 필요는 없지만, 서로 잘 어울리기 때문에 매우 추천됩니다. React와 Redux는 공통된 아이디어와 특징을 가지고 있습니다.
 
-- **Functional composition paradigm** - React composes views (pure functions) while Redux composes pure reducers (also pure functions). Output is predictable given the same set of input.
-- **Easy To Reason About** - You may have heard this term many times but what does it actually mean? We interpret it as having control and understanding over our code - Our code behaves in ways we expect it to, and when there are problems, we can find them easily. Through our experience, React and Redux makes debugging simpler. As the data flow is unidirectional, tracing the flow of data (server responses, user input events) is easier and it is straightforward to determine which layer the problem occurs in.
-- **Layered Structure** - Each layer in the app / Flux architecture is a pure function, and has clear responsibilities. It is relatively easy to write tests for pure functions. You have to centralize changes to your app within the reducer, and the only way to trigger a change is to dispatch an action.
-- **Development Experience** - A lot of effort has gone into creating tools to help in debugging and inspecting the app while development, such as [Redux DevTools](https://github.com/gaearon/redux-devtools). <br> ![Redux Devtools Demo](images/redux-devtools-demo.gif)
+- **기능 구성 패러다임** - React는 뷰(순수 함수)를 작성하고 Redux는 순수 reducer(역시 순수 함수)를 작성합니다. 출력은 동일한 입력을 기준으로 예측이 가능합니다.
+- **쉬운 추론** - 이 용어를 여러번 들었을 수도 있지만 실제로 의미하는 것이 무엇인지 아십니까? 우리는 코드를 제어하고 이해하는 것으로 해석합니다 - 우리의 코드는 예상대로 작동하고 문제가 발생하면 쉽게 찾을 수 있습니다. 우리의 경험으로 봤을때 React와 Redux는 디버깅을 더 간단하게 만듭니다. 데이터 흐름이 단방향이므로 데이터 흐름 (서버 응답, 사용자 입력 이벤트)을 추적하는 것이 더 쉽고 문제가 발생하는 계층을 쉽게 결정할 수 있습니다.
+- **계층화된 구조** - 앱의 각 레이어에서 Flux 아키텍처는 순수 함수이고 분명한 책임이 있습니다. 순수 함수에 대한 테스트를 작성하는 것은 상대적으로 쉽습니다. reducer에 앱의 변경 사항을 집중시켜야하며 변경 사항을 트리거하는 유일한 방법은 액션을 전달하는 것입니다.
+- **개발 경험** - [Redux DevTools](https://github.com/gaearon/redux-devtools)과 같이 개발 중에 앱을 디버깅하고 검사하는데 도움이 되는 많은 도구가 만들어졌습니다. <br> ![Redux Devtools Demo](images/redux-devtools-demo.gif)
 
-Your app will likely have to deal with async calls like making remote API requests. [redux-thunk](https://github.com/gaearon/redux-thunk) and [redux-saga](https://github.com/redux-saga/redux-saga) were created to solve those problems. They may take some time to understand as they require understanding of functional programming and generators. Our advice is to deal with it only when you need it.
+당신의 앱은 원격 API 요청과 같은 비동기 호출을 처리해야할 가능성이 큽니다. [redux-thunk](https://github.com/gaearon/redux-thunk)와 [redux-saga](https://github.com/redux-saga/redux-saga)은 이러한 문제를 해결하기 위해 만들어졌습니다. 함수형 프로그래밍 및 생성기에 대한 이해가 필요하기 때문에 이해하는데 약간의 시간이 걸리 수 있습니다. 우리는 그것을 필요할 때만 사용하라고 충고합니다.
 
-[react-redux](https://github.com/reactjs/react-redux) is an official React binding for Redux and is very simple to learn.
+[react-redux](https://github.com/reactjs/react-redux)는 Redux가 바인딩된 공식적인 React고 배우기 매우 쉽습니다.
 
-**Estimated Duration: 4 days.** The egghead courses can be a little time-consuming but they are worth spending time on. After learning Redux, you can try incorporating it into the React projects you have built. Does Redux solve some of the state management issues you were struggling with in pure React?
+**예상 소요시간: 4일** Egghead 코스는 시간이 좀 걸리지만 시간을 투자할 가치가 있습니다. Redux를 배우고나면, 당신이 만든 React 프로젝트에 그것을 통합할 수 있습니다. 순수한 React에서 고생하고 있는 상태 관리 문제 일부를 Redux가 해결해줍니까?
 
 #### Study Links
 
