@@ -227,21 +227,22 @@ CSS(Cascading Style Sheets)는 작성한 HTML 요소들을 어떻게 표시할�
 
 코드는 한 번 작성하지만, 여러 번 읽게 됩니다. Grab에서는 특히 더 그렇습니다. 팀의 크기가 크고, 여러 엔지니어들이 다양한 프로젝트에 교차로 참여하니까요. 우리는 읽기 쉽고, 유지보수하기 쉬우며, 안정된 코드의 가치를 믿습니다. 이를 달성하기 위한 방법이 몇 가지 있지요. "아주 많은 테스트", "일관된 코드 형식", "타입 체크". 팀으로 일할 때는 동일한 관습을 공유하는 것이 매우 중요합니다. 예를 들어 [자바스크립트 프로젝트 가이드라인들](https://github.com/wearehive/project-guidelines)을 살펴보세요.
 
-## Testing - Jest + Enzyme
+## 테스트 - Jest + Enzyme
 
 <img alt="Jest Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/jest-logo.svg" width="164px" />
 
-[Jest](http://facebook.github.io/jest/) is a testing library by Facebook that aims to make the process of testing pain-free. As with Facebook projects, it provides a great development experience out of the box. Tests can be run in parallel resulting in shorter duration. During watch mode, by default, only the tests for the changed files are run. One particular feature we like is "Snapshot Testing". Jest can save the generated output of your React component and Redux state and save it as serialized files, so you wouldn't have to manually come up with the expected output yourself. Jest also comes with built-in mocking, assertion and test coverage. One library to rule them all!
+[Jest](http://facebook.github.io/jest/)는 고통없는 테스트 과정을 만드는 것을 목표로하는 페이스북의 테스트 라이브러리입니다. 페이스북 프로젝트와 마찬가지로, 그것은 뛰어난 개발 경험을 제공합니다. 테스트를 병렬로 실행할 수 있기 때문에 짧은 시간에 수행될 수 있습니다. 기본적으로 watch 모드에서는 변경된 파일에 대한 테스트만 실행됩니다. 우리가 좋아하는 기능 중 하나는 "스냅샷 테스팅"입니다. Jests는 React 구성요소 및 Redux 상태를 생성된 출력 파일을 저장하고, serialized된 파일들을 저장할 수 있으므로, 수동으로 예상 출력을  가져올 필요가 없습니다. Jest는 mocking, assertion 그리고 테스트 커버리지가 내장되어 있습니다. 하나의 라이브러리로 그것들 모두 지정 가능합니다.
 
 ![Jest Demo](images/jest-demo.gif)
 
-React comes with some testing utilities, but [Enzyme](http://airbnb.io/enzyme/) by Airbnb makes it easier to generate, assert, manipulate and traverse your React components' output with a jQuery-like API. It is recommended that Enzyme be used to test React components.
+React에는 몇 가지 테스트 유틸리티가 있지만, Airbnb의 [Enzyme] http://airbnb.io/enzyme/)을 사용하면 jQuery와 같은 API를 사용하여 React 구성요소의 출력을 생성하고, assert하고, 조작하고 traverse 할 수 있습니다. React 구성요소를 테스트하기 위해서는 Enzyme를 사용하는 것을 추천합니다.
 
-Jest and Enzyme makes writing front end tests fun and easy. When writing tests becomes enjoyable, developers write more tests. It also helps that React components and Redux actions/reducers are relatively easy to test because of clearly defined responsibilities and interfaces. For React components, we can test that given some `props`, the desired DOM is rendered, and that callbacks are fired upon certain simulated user interactions. For Redux reducers, we can test that given a prior state and an action, a resulting state is produced.
+Jest and Enzyme은 프론트 엔드 테스트를 재미있고 쉽게 작성합니다. 테스트를 작성하는 것이 즐거워지면 개발자는 더 많은 테스트를 작성합니다. 또한 React 구성 요소와 Redux 액션/리듀서는 명확하게 정의된 책임과 인터페이스로 인해 테스트하기가 쉽습니다. React 구성요소의 경우 일부 'props', 주어진 DOM이 렌더링 되고, 특정 시뮬레이션된 사용자 인터렉션시 콜백이 발생한다는 것을 테스트할 수 있습니다. Redux 리듀서의 경우 이전 상태와 액션 실행된 결과 상태가 생성되는지 테스트 할 수 있습니다.
 
-The documentation for Jest and Enzyme are pretty concise, and it should be sufficient to learn them by reading it.
+Jest와 Enzyme에 대한 문서는 매우 간결하며, 그것을 읽음으로써 그것들을 학습하기에 충분합니다.
 
-**Estimated Duration: 2-3 days.** Try writing Jest + Enzyme tests for your React + Redux app!
+**예상소요시간: 2-3 일.**  당신의 React와 Redux 앱에 Jest 와 Enzyme 테스트를 작성하세요!
+
 
 #### Study Links
 
@@ -259,11 +260,12 @@ The documentation for Jest and Enzyme are pretty concise, and it should be suffi
 
 <img alt="ESLint Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/eslint-logo.svg" width="256px" />
 
-A linter is a tool to statically analyze code and finds problems with them, potentially preventing bugs/runtime errors and at the same time, enforcing a coding style. Time is saved during pull request reviews when reviewers do not have to leave nitpicky comments on coding style. [ESLint](http://eslint.org/) is a tool for linting JavaScript code that is highly extensible and customizable. Teams can write their own lint rules to enforce their custom styles. At Grab, we use Airbnb's [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) preset, that has already been configured with the common good coding style in the [Airbnb JavaScript style guide](https://github.com/airbnb/javascript).
+linter는 정적으로 코드를 분석하고 문제를 찾아 잠재적으로 버그/런타임 에러를 방지하는 동시에 코딩 스타일을 적용하는 도구입니다. 리뷰어가 코딩 스타일에 사소한 의견을 남겨 둘 필요가 없는 경우 pull request 리뷰에 시간이 절약됩니다. [ESLint](http://eslint.org/)는 확장성이 높고 사용자 정의가 가능한 JavaScript 코드를 linting 하기 위한 도구입니다. 팀은 팀의 사용자 정의 스타일을 적용하기 위해 자체 lint 규칙을 작성할 수 있습니다. Grab에서 우리는 현재 [Airbnb JavaScript style guide](https://github.com/airbnb/javascript) 에서 공통의 좋은 코딩 스타일로 구성된 Airbnb의 [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) 사용하고 있습니다.
 
-For the most part, using ESLint is as simple as tweaking a configuration file in your project folder. There's nothing much to learn about ESLint if you're not writing new rules for it. Just be aware of the errors when they surface and Google it to find out the recommended style.
+대부분의 경우, ESLint를 사용하는 것은 프로젝트 폴더의 구성 파일을 조정하는 것처럼 간단합니다. 새로운 규칙을 작성하지 않으면 ESLint에 대해 배울 점이 많지 않습니다. 오류가 발생했을 때 인식하고, Google에서 권장 스타일을 찾아야합니다
 
-**Estimated Duration: 1/2 day.** Nothing much to learn here. Add ESLint to your project and fix the linting errors!
+**예상소요시간: 1/2 일.**  별로 배울 것이 없습니다. 당신의 프로젝트에 ESLint를 추가하고, linting 에러를 수정하세요!
+
 
 #### Study Links
 
@@ -327,15 +329,16 @@ Flow recently revamped their homepage and it's pretty neat now!
 
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Build System - webpack
+## 빌드 시스템 - webpack
 
 <img alt="webpack Logo" src="https://cdn.rawgit.com/grab/front-end-guide/master/images/webpack-logo.svg" width="256px" />
 
-This part will be kept short as setting up webpack can be a tedious process and might be a turn-off to developers who are already overwhelmed by the barrage of new things they have to learn for front end development. In a nutshell, [webpack](https://webpack.js.org/) is a module bundler that compiles a front end project and its dependencies into a final bundle to be served to users. Usually, projects will already have the webpack configuration set up and developers rarely have to change it. Having an understanding of webpack is still a good to have in the long run. It is due to webpack that features like hot reloading and CSS modules are made possible.
+이번 파트는 webpack 설정이 지루한 과정 일 수 있고, 프론트엔드 개발을 위해서 배워야 하는 새로운 것들에 대한 장벽에 의해 압도당하는 개발자들에게 흥미를 잃게 만들 수 있으므로 짧게 작성됩니다. 요약하면, [webpack](https://webpack.js.org/)은 프론트엔드 프로젝트와 그 의존성을 최종 번들로 컴파일하여 사용자에게 제공하는 모듈 번들러입니다. 보통, 프로젝트는 이미 webpack 환경구성이 설정되어 있고, 개발자는 거의 변경할 필요가 없습니다. webpack에 대한 이해가 있다면 장기적으로 좋습니다. 그것은 hot reloading과 css 모듈과 같은 webpack 기능을 가능하게 만들어주기 때문입니다.
 
-We have found the [webpack walkthrough](https://survivejs.com/webpack/foreword/) by SurviveJS to be the best resource on learning webpack. It is a good complement to the official documentation and we recommend following the walkthrough first and referring to the documentation later when the need for further customization arises.
+우리는 SurviveJS의 [webpack walkthrough](https://survivejs.com/webpack/foreword/)가 webpack을 학습하는데 최고의 자료라는 것을 발견했습니다. 그것은 공식 문서에 대한 좋은 보완이며, 우리는 walkthrough를 먼저 학습하고, 추가적으로 사용자 정의가 필요할 때 공식 문서를 참조하는 것을 추천합니다.
 
-**Estimated Duration: 2 days (Optional).**
+**예상소요시간: 2 일 (선택적)**  
+
 
 #### Study Links
 
