@@ -4,6 +4,5 @@
   "description": "Libraries, tools and frameworks the Grab front end team uses",
   "repository": "git@github.com:grab/front-end-guide.git",
   "author": "yangshun.tay@grab.com",
-  "license": "MIT",
-  "main": "index.js"
+  "license": "MIT"
 }
